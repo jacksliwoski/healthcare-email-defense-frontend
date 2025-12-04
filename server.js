@@ -144,12 +144,6 @@ app.use(express.json());
 // API ROUTES
 // ----------------------
 
-app.get("/api/config", (req, res) => {
-  res.json({
-    openrouterApiKey: process.env.OPENROUTER_API_KEY || "",
-  });
-});
-
 app.post("/api/demo/start", async (req, res) => {
   try {
     await startEmitter();

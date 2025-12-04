@@ -266,15 +266,11 @@ Make the email detailed, believable, and completely unique.
 
 ## Setup
 
-1. **Get an OpenRouter API Key**:
-   - Sign up at [OpenRouter](https://openrouter.ai/keys)
-   - Generate an API key (free tier available)
-
-2. **Configure Environment**:
+1. **Configure Environment**:
    - Copy `.env.example` to `.env`
-   - Add your OpenRouter API key: `OPENROUTER_API_KEY=your_key_here`
+   - Add your AWS credentials and configuration
 
-3. **Install Dependencies**:
+2. **Install Dependencies**:
    ```bash
    npm install
    ```
