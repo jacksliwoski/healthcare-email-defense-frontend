@@ -51,23 +51,18 @@ const s3 = new AWS.S3();
 // CONFIG
 // ------------
 
-const HITL_TABLE = process.env.HITL_TABLE || "sender_intel_hitl_queue";
+// DynamoDB Tables
+const HITL_TABLE = process.env.HITL_TABLE;
+const FEEDBACK_TABLE = process.env.FEEDBACK_TABLE;
 
-const DECISIONS_BUCKET =
-  process.env.METRICS_BUCKET ||
-  process.env.S3_DECISIONS_BUCKET ||
-  "sc-intel-decisions-455185968614-us-east-2";
-
-const DECISIONS_PREFIX =
-  process.env.METRICS_PREFIX ||
-  process.env.S3_DECISIONS_PREFIX ||
-  "runs";
-
+// S3 Configuration
+const DECISIONS_BUCKET = process.env.S3_DECISIONS_BUCKET;
+const DECISIONS_PREFIX = process.env.S3_DECISIONS_PREFIX || "runs";
 const METRICS_BUCKET = DECISIONS_BUCKET;
 const METRICS_PREFIX = DECISIONS_PREFIX;
 
-const FEEDBACK_TABLE = process.env.FEEDBACK_TABLE || "sender_feedback_table";
-const FEEDBACK_AGENT_FN = process.env.FEEDBACK_AGENT_FN || "feedback_agent_lambda";
+// Lambda Functions
+const FEEDBACK_AGENT_FN = process.env.FEEDBACK_AGENT_FN;
 
 // ------------
 // HELPERS
