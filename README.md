@@ -382,4 +382,3 @@ MIT License - see LICENSE file for details
 - Built for cybersecurity education and research
 - Demonstrates agentic AI concepts in healthcare security
 - Uses OpenRouter API for AI model access
-# healthcare-email-defense-frontend
