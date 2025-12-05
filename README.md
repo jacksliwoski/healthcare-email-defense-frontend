@@ -32,7 +32,7 @@ This dashboard connects to an AWS backend deployed via CDK:
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/jacksliwoski/healthcare-email-defense-frontend.git
    cd healthcare-email-defense-frontend
    ```
 
