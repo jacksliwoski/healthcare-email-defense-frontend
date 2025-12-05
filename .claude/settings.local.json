@@ -6,7 +6,8 @@
       "Bash(tree:*)",
       "Bash(cp:*)",
       "Bash(ls:*)",
-      "Bash(dir /b \"C:\\Users\\Jack\\Downloads\\healthcare-email-defense-frontend\\*.html\")"
+      "Bash(dir /b \"C:\\Users\\Jack\\Downloads\\healthcare-email-defense-frontend\\*.html\")",
+      "Bash(dir:*)"
     ],
     "deny": [],
     "ask": []

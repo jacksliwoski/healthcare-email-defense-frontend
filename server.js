@@ -7,12 +7,6 @@ import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc.js";
 import { fileURLToPath } from "url";
 
-import {
-  startEmitter,
-  stopEmitter,
-  isRunning as isEmitterRunning,
-} from "./emit_email.js";
-
 // Load .env BEFORE using process.env
 dotenv.config();
 dayjs.extend(utc);
@@ -138,50 +132,6 @@ app.use(express.json());
 // ----------------------
 // API ROUTES
 // ----------------------
-
-app.post("/api/demo/start", async (req, res) => {
-  try {
-    await startEmitter();
-    res.json({
-      success: true,
-      running: isEmitterRunning(),
-      intervalMs: Number(process.env.DEMO_INTERVAL_MS || 15 * 60 * 1000),
-      controllerFunction: resolveControllerFunctionName(),
-    });
-  } catch (error) {
-    console.error("❌ [DEMO] Failed to start emitter:", error);
-    res.status(500).json({
-      success: false,
-      error: "Failed to start demo emitter",
-      details: error.message,
-    });
-  }
-});
-
-app.post("/api/demo/stop", (req, res) => {
-  try {
-    stopEmitter();
-    res.json({
-      success: true,
-      running: isEmitterRunning(),
-    });
-  } catch (error) {
-    console.error("❌ [DEMO] Failed to stop emitter:", error);
-    res.status(500).json({
-      success: false,
-      error: "Failed to stop demo emitter",
-      details: error.message,
-    });
-  }
-});
-
-app.get("/api/demo/status", (req, res) => {
-  res.json({
-    running: isEmitterRunning(),
-    intervalMs: Number(process.env.DEMO_INTERVAL_MS || 15 * 60 * 1000),
-    controllerFunction: resolveControllerFunctionName(),
-  });
-});
 
 // *** UPDATED: Records feedback. Note field is optional. ***
 async function applyLearningFromVerdict(item, verdict, actor, ts, notes) {
@@ -1359,7 +1309,6 @@ app.get("/api/health", (req, res) => {
         process.env.SENDER_CONTROLLER_FN
       ),
     awsRegion: process.env.AWS_REGION || "us-east-2",
-    demoEmitterRunning: isEmitterRunning(),
     hitlTable: HITL_TABLE,
     metricsBucket: METRICS_BUCKET,
     metricsPrefix: METRICS_PREFIX,
